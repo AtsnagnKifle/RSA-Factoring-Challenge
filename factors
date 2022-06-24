@@ -6,16 +6,23 @@ while True:
     try:
 
         n = int(input())
-        div = 2
-        while True:
-            if n % div == 0:
-                fir_div = div
-                sec_div = n//div
-                print("{}={}*{}".format(n, max(fir_div,
-                      sec_div), min(fir_div, sec_div)))
-                break
-            else:
-                div += 1
+        if n % 2 == 0:
+            print("{}={}*{}".format(n, n//2, 2))
+        else:
+            div = 3
+            flag = False
+            while (div*div) <= n:
+                if n % div == 0:
+                    fir_div = div
+                    sec_div = n//div
+                    print("{}={}*{}".format(n, max(fir_div,
+                                                   sec_div), min(fir_div, sec_div)))
+                    flag = True
+                    break
+                else:
+                    div += 2
+            if not flag:
+                print("{}={}*{}", n, n, 1)
 
     except EOFError:
         break
