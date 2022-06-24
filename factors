@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+import sys
+filename = sys.argv[-1]
+sys.stdin = open(filename, 'r')
+while True:
+    try:
+
+        n = int(input())
+        div = 2
+        while True:
+            if n % div == 0:
+                fir_div = div
+                sec_div = n//div
+                print("{}={}*{}".format(n, max(fir_div,
+                      sec_div), min(fir_div, sec_div)))
+                break
+            else:
+                div += 1
+
+    except EOFError:
+        break
